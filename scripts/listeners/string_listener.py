@@ -1,6 +1,7 @@
 import message_sender as msgs_sender
 from std_msgs.msg import String
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 
 class TopicNode(Node):
 	def __init__(self, topic):

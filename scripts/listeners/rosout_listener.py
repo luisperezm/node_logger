@@ -2,6 +2,7 @@ import message_sender as msgs_sender
 from std_msgs.msg import String
 from rcl_interfaces.msg import Log
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 
 import logging, json
 

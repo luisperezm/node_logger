@@ -2,7 +2,6 @@ from azure.eventhub import EventHubClient, Sender, EventData
 import os
 import sys
 
-from rclpy.node import Node
 
 
 

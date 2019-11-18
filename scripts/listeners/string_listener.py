@@ -2,7 +2,7 @@ import message_sender as msgs_sender
 from std_msgs.msg import String
 from rclpy.node import Node
 
-class TopicNode(Node):	
+class TopicNode(Node):
 	def __init__(self, topic):
 		super().__init__('node_logger')
 
@@ -13,12 +13,12 @@ class TopicNode(Node):
 		self.eventhub = self.get_parameter("eventhub_name")
 
 		if (self.conn_str.type_ == Parameter.Type.NOT_SET):
-            self.get_logger().error('Please insert connection string to eventhub')
-            exit(-1)
+			self.get_logger().error('Please insert connection string to eventhub')
+			exit(-1)
 
-        if (self.eventhub.type_ == Parameter.Type.NOT_SET):
-            self.get_logger().error('Please insert the eventhub name')
-            exit(-1)
+		if (self.eventhub.type_ == Parameter.Type.NOT_SET):
+			self.get_logger().error('Please insert the eventhub name')
+			exit(-1)
 		
 
 
@@ -34,4 +34,4 @@ class TopicNode(Node):
 	def listener_callback(self, msg):
 		self.msg = msg
 		print('sending message')
-		msgs_sender.send_message(msg.data,self.partition, self.conn_str.value, self.eventhub.value)
+		msgs_sender.send_message(msg.data, self.conn_str.value, self.eventhub.value,self.partition)

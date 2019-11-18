@@ -11,8 +11,8 @@ EVENT_HUB = os.environ['EVENT_HUB_NAME']
 #cadena = Node.get_parameter("conn_str")
 #print(cadena)
 
-def send_message(message, partition=1):
-	client = EventHubClient.from_connection_string(CONNECTION_STR, EVENT_HUB)
+def send_message(message, partition=1, conn_str, eventhub):
+	client = EventHubClient.from_connection_string(conn_str, eventhub)
 	sender = client.add_sender(partition=partition)
 	print(cadena)
 	client.run()
